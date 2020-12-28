@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/actors/Bruiser.gd" type="Script" id=1]
+[ext_resource path="res://src/actors/stats/stats.gd" type="Script" id=2]
+[ext_resource path="res://assets/Actors/bat24.png" type="Texture" id=3]
+[ext_resource path="res://src/ai/BasicMeleeAttacker.gd" type="Script" id=4]
+[ext_resource path="res://src/actions/Avaliable_Actions.gd" type="Script" id=5]
+[ext_resource path="res://src/actions/Wait.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/actions/Walk.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/actions/ChangeState.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/actions/MeleeAttack.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/actors/StatusEffects.gd" type="Script" id=10]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+max_health = 5
+max_mana = 0
+strength = 2
+defense = 2
+speed = 1
+ghost_walk = false
+has_scent = false
+
+[node name="Vampire" type="Position2D"]
+script = ExtResource( 1 )
+stats = SubResource( 1 )
+display_name = "Vampire"
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.75, 0.75 )
+z_index = 2
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="Sprite"]
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Inventory" type="Node" parent="."]
+
+[node name="AI" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Actions" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Wait" parent="Actions" instance=ExtResource( 6 )]
+description = "Do Nothing"
+
+[node name="Walk" parent="Actions" instance=ExtResource( 7 )]
+energy_cost = 500
+
+[node name="SwitchStates" parent="Actions" instance=ExtResource( 8 )]
+
+[node name="MeleeAttack" parent="Actions" instance=ExtResource( 9 )]
+energy_cost = 333
+
+[node name="Drops" type="Node" parent="."]
+
+[node name="Bars" type="Node" parent="."]
+
+[node name="StatusEffects" type="Node" parent="."]
+script = ExtResource( 10 )
+
+[node name="Equipment" type="Node" parent="."]

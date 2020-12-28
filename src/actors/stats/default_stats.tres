@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://src/actors/stats/stats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+max_health = 5
+max_mana = 0
+strength = 2
+defense = 2
+speed = 1
+ghost_walk = false
+has_scent = false

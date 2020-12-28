@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/actors/Actor.gd" type="Script" id=1]
+[ext_resource path="res://src/actors/stats/default_stats.tres" type="Resource" id=2]
+[ext_resource path="res://src/actions/Avaliable_Actions.gd" type="Script" id=3]
+[ext_resource path="res://src/actors/StatusEffects.gd" type="Script" id=4]
+
+[node name="Actor" type="Position2D"]
+script = ExtResource( 1 )
+stats = ExtResource( 2 )
+
+[node name="Inventory" type="Node" parent="."]
+
+[node name="AI" type="Node" parent="."]
+
+[node name="Actions" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Drops" type="Node" parent="."]
+
+[node name="Bars" type="Node" parent="."]
+
+[node name="StatusEffects" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Equipment" type="Node" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.75, 0.75 )
+z_index = 2
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="Sprite"]
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Modifiers" type="Node" parent="."]

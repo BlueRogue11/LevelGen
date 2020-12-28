@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/main/Dungeon.gd" type="Script" id=1]
+[ext_resource path="res://src/interface/MessageBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/level_gen/LvlGenGates.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Tilesets/KeeperTiles.tres" type="TileSet" id=4]
+
+[node name="Dungeon" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="MessageBox" parent="." instance=ExtResource( 2 )]
+
+[node name="Gates" parent="." instance=ExtResource( 3 )]
+tile_set = ExtResource( 4 )
+min_rooms = 4
+max_rooms = 10
+min_room_size = 7
+max_room_size = 10
+chance_room_dark = 0

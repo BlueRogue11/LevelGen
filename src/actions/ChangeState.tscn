@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/actions/ChangeState.gd" type="Script" id=1]
+
+[node name="ChangeState" type="Node"]
+script = ExtResource( 1 )
+energy_cost = 0
+description = "AI is changing state."
