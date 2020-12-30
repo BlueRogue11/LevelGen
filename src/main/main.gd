@@ -14,8 +14,8 @@ func _ready():
 	dungeon = load(first_dungeon_path).instance()
 	add_child(dungeon)
 	yield(get_tree(), "idle_frame")
-	#hero = load("res://src/actors/Player.tscn").instance()
-	#dungeon.enter_dungeon(hero)
+	hero = load("res://src/actors/Player.tscn").instance()
+	dungeon.enter_dungeon(hero)
 			
 
 

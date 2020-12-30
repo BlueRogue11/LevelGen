@@ -43,13 +43,15 @@ func _input(event):
 		if !new_pos == Vector2(-1,-1):
 			action = get_parent().get_node("Actions/Walk")
 			action.new_pos = new_pos
-			if me.stats.ghost_walk:
-				if !level.pathfinder.actor_at_location(new_pos):
-					get_player_input = false
-					emit_signal("got_player_action")
-			elif level.pathfinder.is_free(new_pos):
-					get_player_input = false
-					emit_signal("got_player_action")
+			get_player_input = false
+			emit_signal("got_player_action")
+			# if me.stats.ghost_walk:
+				# # if !level.pathfinder.actor_at_location(new_pos):
+				# get_player_input = false
+				# emit_signal("got_player_action")
+			# elif level.pathfinder.is_free(new_pos):
+					# get_player_input = false
+					# emit_signal("got_player_action")
 			
 				
 				

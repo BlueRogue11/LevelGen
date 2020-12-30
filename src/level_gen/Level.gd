@@ -37,28 +37,28 @@ func end_round():
 	turn_num = turn_num + 1
 
 	#Update scent map.
-	var remove = []
-	for x in range(map.size()):
-		for y in range(map[0].size()):
-			if map[x][y].scents.size() > 0:
+	# var remove = []
+	# for x in range(map.size()):
+		# for y in range(map[0].size()):
+			# if map[x][y].scents.size() > 0:
 				
-				for actor in map[x][y].scents.keys():
-					map[x][y].scents[actor] = map[x][y].scents[actor] - 1
-					if map[x][y].scents[actor] == 0:
-						remove.append(actor)
+				# for actor in map[x][y].scents.keys():
+					# map[x][y].scents[actor] = map[x][y].scents[actor] - 1
+					# if map[x][y].scents[actor] == 0:
+						# remove.append(actor)
 						
-			for actor in remove:
-				map[x][y].scents.erase(actor)
-			remove.clear()
+			# for actor in remove:
+				# map[x][y].scents.erase(actor)
+			# remove.clear()
 
 func request_walk(actor : Actor, new_pos : Vector2) -> bool:
 	var move = false
-	if map.is_in_bounds(new_pos):
+	if map.point_in_bounds(new_pos):
 			move = true
 	if move:
-		#Mark scent.
-		if actor.stats.has_scent && map[actor.tile_pos.x][actor.tile_pos.y].passable:
-			map[actor.tile_pos.x][actor.tile_pos.y].scents[actor] = 10
+		# #Mark scent.
+		# if actor.stats.has_scent && map[actor.tile_pos.x][actor.tile_pos.y].passable:
+			# map[actor.tile_pos.x][actor.tile_pos.y].scents[actor] = 10
 		set_actor_position(actor,new_pos)
 		return true
 	else: 
